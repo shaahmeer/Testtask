@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Testtask</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="some_">
+        25%
+    </string>
+    <string name="btc">
+        0,00000025 Btc
+    </string>
+    <string name="your_balanc">
+        your Balance
+    </string>
+    <string name="some_id">
+        \u00D0\u009D\u00D0\u00B0\u00D1\u0087\u00D0\u00B0\u00D1\u0082\u00D1\u008C
+    </string>
+    <string name="satoshi">
+        25 Satoshi
+    </string>
+
+    <string name="welcome_to_">
+        Welcome to Bitcoin Miner
+    </string>
+</resources>
