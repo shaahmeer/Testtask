@@ -1,19 +1,27 @@
 package com.example.testtask;
 
 
+import static android.content.ContentValues.TAG;
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -30,8 +38,9 @@ public class BlankFragment2 extends Fragment {
     private ImageView black;
     private TextView somed;
     private ImageButton button2;
-    private TextView btc, boosttext,getBtctext;
+    private static TextView btc, boosttext,getBtctext;
     private TextView nachat;
+
     private TextView satoshii;
     private ImageButton pingal;
     ImageButton imageButton1;
@@ -45,6 +54,9 @@ public class BlankFragment2 extends Fragment {
     private CountDownTimer countDownTimer;
     private Runnable resetButtonRunnable;
     private Handler handler;
+    DatabaseManager databaseManager;
+    private String btcValueString,satoshiValueString;
+    private static SharedPreferences sharedpreferences;
 
 
     
@@ -73,6 +85,7 @@ public class BlankFragment2 extends Fragment {
 
 
 
+
         buttoncolor();
         serverbutton();
         textchange();
@@ -80,7 +93,10 @@ public class BlankFragment2 extends Fragment {
         sqlite();
         return view;
 
+
+
     }
+
 
 
     public void buttonsetting() {
@@ -329,14 +345,76 @@ public class BlankFragment2 extends Fragment {
     }
 
 
+
     public void sqlite(){
         getbtcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                intentmessage();
+                try{
 
-            }
-        });
+                    btcValueString = btc.getText().toString().replace(",", ".");
+                    satoshiValueString = satoshii.getText().toString().replace("%", "");
+
+                    Log.e(TAG, "Value BTC 22 : " + btcValueString);
+                    Log.e(TAG, "Value of Satoch 22 : " +satoshiValueString);
+
+                    databaseManager = new DatabaseManager(getActivity());
+
+                    databaseManager.open();
+
+                    databaseManager.insertIntoTable(btcValueString, satoshiValueString);
+
+
+
+                } catch (Exception e) {
+
+                    Log.e(TAG, "No data found");
+                }
+
+
+                    LayoutInflater layoutInflater
+                            = (LayoutInflater)getContext()
+                            .getSystemService(LAYOUT_INFLATER_SERVICE);
+                    View popupView = layoutInflater.inflate(R.layout.activity_popup_window, null);
+                    final PopupWindow popupWindow = new PopupWindow(
+                            popupView,
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                    Button btnDismiss = (Button)popupView.findViewById(R.id.share);
+                    btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+                        @Override
+                        public void onClick(View v) {
+                            // TODO Auto-generated method stub
+                            popupWindow.dismiss();
+                        }});
+
+                    popupWindow.showAsDropDown(getbtcc, 0, -600);
+
+                }});
+         }
+
+         public void intentmessage(){
+             String btc1 = (String) btc.getText();
+             String satoshi = (String) satoshii.getText();
+             Intent intent = new Intent(getActivity(), PopupWindowActivity.class);
+             intent.putExtra("btc", btc1);
+             intent.putExtra("satoshi",satoshi);
+             startActivity(intent);
+         }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        sqlite();
+
     }
+
+
+
+
 
 
 

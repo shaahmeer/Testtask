@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/background_light">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/share"
+               android:onClick="share"
+                android:background="@drawable/bg_layout"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Share" />
+            <Button
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:fontFamily="@font/jejugothicregular"
+                android:text="Back Button"
+                android:id="@+id/back"/>
+
+
+
+
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/bitcoin"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/jejugothicregular"
+
+                android:id="@+id/btcpopup2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Your BTC Balance is" />
+            <TextView
+                android:layout_marginTop="10dp"
+
+                android:fontFamily="@font/jejugothicregular"
+                android:textSize="15dp"
+                android:id="@+id/btcpopup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Your BTC Balance is" />
+            <TextView
+                android:layout_marginTop="10dp"
+
+                android:fontFamily="@font/jejugothicregular"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Satoshi Balance is" />
+            <TextView
+                android:layout_marginTop="10dp"
+
+                android:id="@+id/satoshi"
+                android:textSize="15dp"
+                android:fontFamily="@font/jejugothicregular"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Satoshi Balance is" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
