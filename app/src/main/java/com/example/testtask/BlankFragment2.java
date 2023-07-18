@@ -373,25 +373,25 @@ public class BlankFragment2 extends Fragment {
                 }
 
 
-                    LayoutInflater layoutInflater
-                            = (LayoutInflater)getContext()
-                            .getSystemService(LAYOUT_INFLATER_SERVICE);
-                    View popupView = layoutInflater.inflate(R.layout.activity_popup_window, null);
-                    final PopupWindow popupWindow = new PopupWindow(
-                            popupView,
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT);
-
-                    Button btnDismiss = (Button)popupView.findViewById(R.id.share);
-                    btnDismiss.setOnClickListener(new Button.OnClickListener(){
-
-                        @Override
-                        public void onClick(View v) {
-                            // TODO Auto-generated method stub
-                            popupWindow.dismiss();
-                        }});
-
-                    popupWindow.showAsDropDown(getbtcc, 0, -600);
+//                    LayoutInflater layoutInflater
+//                            = (LayoutInflater)getContext()
+//                            .getSystemService(LAYOUT_INFLATER_SERVICE);
+//                    View popupView = layoutInflater.inflate(R.layout.activity_popup_window, null);
+//                    final PopupWindow popupWindow = new PopupWindow(
+//                            popupView,
+//                            ViewGroup.LayoutParams.WRAP_CONTENT,
+//                            ViewGroup.LayoutParams.WRAP_CONTENT);
+//
+//                    Button btnDismiss = (Button)popupView.findViewById(R.id.share);
+//                    btnDismiss.setOnClickListener(new Button.OnClickListener(){
+//
+//                        @Override
+//                        public void onClick(View v) {
+//                            // TODO Auto-generated method stub
+//                            popupWindow.dismiss();
+//                        }});
+//
+//                    popupWindow.showAsDropDown(getbtcc, 0, -600);
 
                 }});
          }
@@ -409,7 +409,7 @@ public class BlankFragment2 extends Fragment {
         super.onSaveInstanceState(outState);
 
         sqlite();
-        intentmessage();
+
 
     }
 
