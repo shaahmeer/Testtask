@@ -30,7 +30,7 @@ public class BlankFragment2 extends Fragment {
     private ImageView black;
     private TextView somed;
     private ImageButton button2;
-    private TextView btc, boosttext;
+    private TextView btc, boosttext,getBtctext;
     private TextView nachat;
     private TextView satoshii;
     private ImageButton pingal;
@@ -39,8 +39,8 @@ public class BlankFragment2 extends Fragment {
     ImageButton imageButton3;
     ImageButton getbtcc;
     ImageButton imageButton4;
-    ImageButton mainButton;
-    private ColorStateList defaultTextColor;
+    ImageButton boost;
+    private ColorStateList defaultTextColor,defaultTextColor2;
     private TextView timerTextView;
     private CountDownTimer countDownTimer;
     private Runnable resetButtonRunnable;
@@ -55,7 +55,7 @@ public class BlankFragment2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_blank2, container, false);
 
         button2 = view.findViewById(R.id.subtract);
-//        greeen = view.findViewById(R.id.rectangle);
+//       greeen = view.findViewById(R.id.rectangle);
         black = view.findViewById(R.id.green);
         somed = view.findViewById(R.id.somed);
         btc = view.findViewById(R.id.btccount);
@@ -65,16 +65,19 @@ public class BlankFragment2 extends Fragment {
         imageButton3 = view.findViewById(R.id.imagebutton3);
         imageButton4 = view.findViewById(R.id.imagebutton4);
         boosttext = view.findViewById(R.id.bootext);
-        mainButton = view.findViewById(R.id.boost);
+        boost = view.findViewById(R.id.boost);
         nachat = view.findViewById(R.id.startbuttoncircle);
         timerTextView = view.findViewById(R.id.timerTextView);
         getbtcc = view.findViewById(R.id.getbtc);
+        getBtctext = view.findViewById(R.id.textgetbtc);
+
 
 
         buttoncolor();
         serverbutton();
         textchange();
         buttonsetting();
+        sqlite();
         return view;
 
     }
@@ -253,10 +256,11 @@ public class BlankFragment2 extends Fragment {
     }
 
     public void serverbutton() {
-        mainButton.setOnClickListener(new View.OnClickListener() {
+        boost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boosttext.setTextColor(Color.GREEN);
+
                 GradientDrawable drawable = new GradientDrawable();
 
                 drawable.setColor(Color.GREEN);
@@ -289,17 +293,47 @@ public class BlankFragment2 extends Fragment {
 
     public void textchange() {
         defaultTextColor = boosttext.getTextColors();
-        mainButton.setOnTouchListener(new View.OnTouchListener() {
+        defaultTextColor2 = getBtctext.getTextColors();
+        boost.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     // Change text color to red when button is pressed
                     boosttext.setTextColor(Color.RED);
+
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     // Revert to default text color when button is released
                     boosttext.setTextColor(defaultTextColor);
+
                 }
                 return false;
+            }
+        });
+        getbtcc.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    // Change text color to red when button is pressed
+                    getBtctext.setTextColor(Color.RED);
+
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    // Revert to default text color when button is released
+                    getBtctext.setTextColor(defaultTextColor2);
+
+                }
+                return false;
+            }
+        });
+    }
+
+
+    public void sqlite(){
+        getbtcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

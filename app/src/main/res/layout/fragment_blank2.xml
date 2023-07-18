@@ -220,7 +220,7 @@
         android:layout_height="52dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/getbtcbutton"
+        android:background="@drawable/mybuttonselector"
 
         android:text="Boost"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -236,18 +236,19 @@
         android:layout_height="52dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/getbtcbutton"
+        android:background="@drawable/mybuttonselector"
+
 
         android:text="Boost"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/boost"
-        app:layout_constraintVertical_bias="0.503" />
+        app:layout_constraintVertical_bias="0.308" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/textgetbtc"
         android:layout_width="146dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
@@ -315,6 +316,17 @@
         app:layout_constraintTop_toTopOf="@+id/boost"
         app:layout_constraintVertical_bias="0.56" />
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/btcgif"
+        android:layout_width="34dp"
+        android:layout_height="31dp"
+        android:src="@drawable/bitcoin"
+
+        app:layout_constraintBottom_toBottomOf="@+id/getbtc"
+        app:layout_constraintEnd_toStartOf="@+id/text"
+        app:layout_constraintStart_toStartOf="@+id/getbtc"
+        app:layout_constraintTop_toTopOf="@+id/getbtc" />
+
     <ImageView
         android:id="@+id/rectangle"
         android:layout_width="39dp"
@@ -334,7 +346,7 @@
         android:layout_height="53dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/green"
+        android:background="@drawable/chotgreen"
         app:layout_constraintBottom_toBottomOf="@+id/rectangle"
         app:layout_constraintEnd_toEndOf="@+id/rectangle"
         app:layout_constraintHorizontal_bias="0.0"
