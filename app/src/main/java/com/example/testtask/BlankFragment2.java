@@ -409,6 +409,7 @@ public class BlankFragment2 extends Fragment {
         super.onSaveInstanceState(outState);
 
         sqlite();
+        intentmessage();
 
     }
 
